@@ -3,17 +3,15 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './renderWithRouter';
 import pokemons from '../data';
+import Pokemon from '../components/Pokemon';
 import App from '../App';
 
 // Teste no Pokemon.js
 describe('Testes para o componente Pokemon.js para avaliar', () => {
   const pokemon = pokemons[1];
 
-  it('Contém os componentes', () => {
-    const { history } = renderWithRouter(<App />);
-
-    const nextPokemon = screen.getByRole('button', { name: /próximo pokémon/i });
-    userEvent.click(nextPokemon);
+  it('Contém os componentes com as informações do pokemon', () => {
+    renderWithRouter(<Pokemon pokemon={ pokemon } isFavorite={ false } />);
 
     const name = screen.getByTestId('pokemon-name');
     expect(name).toBeInTheDocument();
@@ -32,6 +30,13 @@ describe('Testes para o componente Pokemon.js para avaliar', () => {
     const image = screen.getByRole('img', { name: `${pokemon.name} sprite` });
     expect(image).toBeInTheDocument();
     expect(image).toHaveAttribute('src', pokemon.image);
+  });
+
+  it('Verifica a renderização dos mais detalhes do pokemon e a rota', () => {
+    const { history } = renderWithRouter(<App />);
+
+    const nextPokemon = screen.getByRole('button', { name: /próximo pokémon/i });
+    userEvent.click(nextPokemon);
 
     const moreDetailsLink = screen.getByRole('link', { name: /more details/i });
     expect(moreDetailsLink).toBeInTheDocument();
