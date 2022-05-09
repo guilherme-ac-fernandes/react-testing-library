@@ -2,9 +2,8 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './renderWithRouter';
-import App from '../App';
-import Pokemon from '../components/Pokemon';
 import pokemons from '../data';
+import App from '../App';
 
 // Teste no Pokemon.js
 describe('Testes para o componente Pokemon.js para avaliar', () => {
