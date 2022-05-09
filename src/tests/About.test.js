@@ -3,7 +3,7 @@ import { screen } from '@testing-library/react';
 import renderWithRouter from './renderWithRouter';
 import About from '../components/About';
 
-// Teste no App.js
+// Teste no About.js
 describe('Testes para o componente About.js para avaliar', () => {
   it('Contém um título com o texto About Pokédex', () => {
     renderWithRouter(<About />);
@@ -21,7 +21,7 @@ describe('Testes para o componente About.js para avaliar', () => {
     const paragraphs = [paragraph1, paragraph2];
 
     paragraphs.forEach((paragraph) => {
-      const paragraphElement = screen.getByText(paragraph);
+      const paragraphElement = screen.getByText(paragraph, { selector: 'p' });
       expect(paragraphElement).toBeInTheDocument();
     });
   });
