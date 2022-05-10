@@ -44,10 +44,10 @@ describe('Testes para o componente Pokemon.js para avaliar', () => {
 
     // Utilização do atributo href proveniente do Stack OverFlow
     // link: https://stackoverflow.com/questions/57827126/how-to-test-anchors-href-with-react-testing-library
-    expect(moreDetailsLink).toHaveAttribute('href', `/pokemons/pokemon/${pokemon.id}`);
+    expect(moreDetailsLink).toHaveAttribute('href', `/pokemons/${pokemon.id}`);
 
     const { location: { pathname } } = history;
-    expect(pathname).toBe(`/pokemons/pokemon/${pokemon.id}`);
+    expect(pathname).toBe(`/pokemons/${pokemon.id}`);
 
     const stringTitle = `${pokemon.name} Details`;
     const moreDetailsTitle = screen.getByRole('heading', { level: 2, name: stringTitle });
