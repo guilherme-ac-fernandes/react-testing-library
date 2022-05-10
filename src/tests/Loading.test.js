@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import renderWithRouter from './renderWithRouter';
-import Loading from '../components/Loading';
+import Loading from '../bonus/Loading';
 
 // Teste no Loading.js
 describe('Testes para o componente Loading.js para avaliar', () => {

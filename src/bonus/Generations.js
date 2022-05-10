@@ -10,7 +10,7 @@ class Generations extends React.Component {
     this.state = {
       generations: [],
       loading: true,
-    }
+    };
 
     this.getGenerations = this.getGenerations.bind(this);
   }
@@ -19,24 +19,23 @@ class Generations extends React.Component {
     this.getGenerations();
   }
 
-
   async getGenerations() {
     this.setState({ loading: true }, async () => {
       try {
         const URL = 'https://pokeapi.co/api/v2/generation';
         const response = await fetch(URL);
         const generations = await response.json();
-        const results = generations.results;
-        this.setState({ 
-          generations: results, 
-          loading: false 
+        const { results } = generations;
+        this.setState({
+          generations: results,
+          loading: false,
         });
       } catch (error) {
         this.setState({ loading: true }, () => {
-          console.log(`Erro ao fazer a requisição: ${error}`)
+          console.log(`Erro ao fazer a requisição: ${error}`);
         });
       }
-    })
+    });
   }
 
   changeName = (phrase) => {
@@ -47,23 +46,25 @@ class Generations extends React.Component {
   }
 
   render() {
-    const { loading, generations } = this.state; 
+    const { loading, generations } = this.state;
     return (
       <>
-        <h2>{ `Generations` }</h2>
+        <h2>Generations</h2>
         <div className="generation-container">
           {loading ? (
             <Loading />
           ) : (
             <>
-              {generations.map(({ name }, index) => 
-              <div key={ index } className="generation-card">
-                <p>{this.changeName(name)}</p>
-                <Link to={ `pokemons/generations/${index + 1}` }>More details</Link>
-              </div>
-              )}
+              {generations.map(({ name }, index) => (
+                <div
+                  key={ index }
+                  className="generation-card"
+                >
+                  <p>{this.changeName(name)}</p>
+                  <Link to={ `pokemons/generations/${index + 1}` }>More details</Link>
+                </div>))}
             </>
-          )} 
+          )}
         </div>
       </>
     );

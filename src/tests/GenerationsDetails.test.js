@@ -2,7 +2,7 @@ import React from 'react';
 import { waitFor, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './renderWithRouter';
-import GenerationsDetails from '../components/GenerationsDetails';
+import GenerationsDetails from '../bonus/GenerationsDetails';
 import App from '../App';
 
 const changeName = (string) => string[0].toUpperCase() + string.slice(1);

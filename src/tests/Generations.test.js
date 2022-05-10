@@ -2,7 +2,7 @@ import React from 'react';
 import { waitFor, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './renderWithRouter';
-import Generations from '../components/Generations';
+import Generations from '../bonus/Generations';
 import App from '../App';
 
 const changeName = (phrase) => {

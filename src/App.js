@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
-import Locations from './components/Locations';
-import Generations from './components/Generations';
-import GenerationsDetails from './components/GenerationsDetails';
+import Locations from './bonus/Locations';
+import Generations from './bonus/Generations';
+import GenerationsDetails from './bonus/GenerationsDetails';
 
 import {
   About,

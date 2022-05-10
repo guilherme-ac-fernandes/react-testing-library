@@ -3,7 +3,7 @@ import { waitFor, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './renderWithRouter';
 import App from '../App';
-import Locations from '../components/Locations';
+import Locations from '../bonus/Locations';
 
 const changeName = (phrase) => {
   const arrayString = phrase.split('-');

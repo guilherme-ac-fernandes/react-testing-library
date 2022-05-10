@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Loading from './Loading';
 import './GenerationsDetails.css';
 
@@ -9,7 +10,7 @@ class GenerationsDetails extends React.Component {
     this.state = {
       generation: [],
       loading: true,
-    }
+    };
 
     this.getGenerations = this.getGenerations.bind(this);
   }
@@ -25,20 +26,20 @@ class GenerationsDetails extends React.Component {
         const URL = `https://pokeapi.co/api/v2/generation/${id}/`;
         const response = await fetch(URL);
         const generation = await response.json();
-        this.setState({ 
-          generation, 
-          loading: false
+        this.setState({
+          generation,
+          loading: false,
         });
       } catch (error) {
         this.setState({ loading: true }, () => {
-          console.log(`Erro ao fazer a requisição: ${error}`)
+          console.log(`Erro ao fazer a requisição: ${error}`);
         });
       }
-    })
+    });
   }
 
   changeName = (string) => string[0].toUpperCase() + string.slice(1);
-  
+
   render() {
     const { loading, generation } = this.state;
     return (
@@ -51,14 +52,23 @@ class GenerationsDetails extends React.Component {
               { `${this.changeName(generation.main_region.name)} Pokemon` }
             </h2>
             <section className="generations-details-pokemon-gen">
-              {generation.pokemon_species.map((pok, index) => 
-                <p key={index}>{this.changeName(pok.name)}</p>)}
+              {generation.pokemon_species
+                .map((pok, index) => <p key={ index }>{this.changeName(pok.name)}</p>)}
             </section>
           </div>
-        )} 
+        )}
       </div>
     );
   }
 }
+
+GenerationsDetails.propTypes = {
+  match: PropTypes.shape({
+    path: PropTypes.string,
+    url: PropTypes.string,
+    isExact: PropTypes.bool,
+    params: PropTypes.objectOf(PropTypes.string),
+  }).isRequired,
+};
 
 export default GenerationsDetails;
