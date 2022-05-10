@@ -6,7 +6,7 @@
   height: 50%;
   justify-content: center;
   margin: 30px auto;
-  width: 90%;
+  max-width: 700px;
 }
 
 .generation-card {
