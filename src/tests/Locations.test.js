@@ -21,9 +21,9 @@ describe('Testes para o componente Locations.js para avaliar', () => {
     expect(locationsLink).toBeInTheDocument();
     userEvent.click(locationsLink);
 
-    const loaging = await screen.findByText(/loading/i);
-    expect(loaging).toBeInTheDocument();
-    await waitFor(() => expect(loaging).not.toBeInTheDocument());
+    const loading = await screen.findByText(/loading/i);
+    expect(loading).toBeInTheDocument();
+    await waitFor(() => expect(loading).not.toBeInTheDocument());
 
     const locationsTitle = screen.getByRole('heading',
       { level: 2, name: /locations/i });
@@ -47,8 +47,8 @@ describe('Testes para o componente Locations.js para avaliar', () => {
     renderWithRouter(<Locations />);
     expect(global.fetch).toBeCalledTimes(1);
 
-    const loaging = await screen.findByText(/loading/i);
-    await waitFor(() => expect(loaging).not.toBeInTheDocument());
+    const loading = await screen.findByText(/loading/i);
+    await waitFor(() => expect(loading).not.toBeInTheDocument());
 
     const locationName = changeName(location.results[0].name);
     const locationNameElement = screen.getByText(locationName);
@@ -73,8 +73,8 @@ describe('Testes para o componente Locations.js para avaliar', () => {
     renderWithRouter(<Locations />);
     expect(global.fetch).toBeCalledTimes(1);
 
-    const loaging = await screen.findByText(/loading/i);
-    await waitFor(() => expect(loaging).not.toBeInTheDocument());
+    const loading = await screen.findByText(/loading/i);
+    await waitFor(() => expect(loading).not.toBeInTheDocument());
 
     const locationName = changeName(location.results[0].name);
     const locationNameElement = screen.getByText(locationName);

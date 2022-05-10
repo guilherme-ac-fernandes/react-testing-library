@@ -21,9 +21,9 @@ describe('Testes para o componente Generations.js para avaliar', () => {
     expect(generationsLink).toBeInTheDocument();
     userEvent.click(generationsLink);
 
-    const loaging = await screen.findByText(/loading/i);
-    expect(loaging).toBeInTheDocument();
-    await waitFor(() => expect(loaging).not.toBeInTheDocument());
+    const loading = await screen.findByText(/loading/i);
+    expect(loading).toBeInTheDocument();
+    await waitFor(() => expect(loading).not.toBeInTheDocument());
 
     const generationsTitle = screen.getByRole('heading',
       { level: 2, name: /generations/i });
@@ -48,8 +48,8 @@ describe('Testes para o componente Generations.js para avaliar', () => {
     renderWithRouter(<Generations />);
     expect(global.fetch).toBeCalledTimes(1);
 
-    const loaging = await screen.findByText(/loading/i);
-    await waitFor(() => expect(loaging).not.toBeInTheDocument());
+    const loading = await screen.findByText(/loading/i);
+    await waitFor(() => expect(loading).not.toBeInTheDocument());
 
     generations.results.forEach(({ name }) => {
       const generationText = screen.getByText(changeName(name));

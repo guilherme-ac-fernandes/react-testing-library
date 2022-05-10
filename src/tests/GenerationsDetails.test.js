@@ -26,9 +26,9 @@ describe('Testes para o componente GenerationsDetails.js para avaliar', () => {
     expect(generationsLink).toBeInTheDocument();
     userEvent.click(generationsLink);
 
-    const loaging = await screen.findByText(/loading/i);
-    expect(loaging).toBeInTheDocument();
-    await waitFor(() => expect(loaging).not.toBeInTheDocument());
+    const loading = await screen.findByText(/loading/i);
+    expect(loading).toBeInTheDocument();
+    await waitFor(() => expect(loading).not.toBeInTheDocument());
 
     const generationsTitle = screen.getByRole('heading',
       { level: 2, name: /generations/i });
@@ -39,7 +39,7 @@ describe('Testes para o componente GenerationsDetails.js para avaliar', () => {
     expect(moreDetailsLinks).toHaveLength(pokemonGens);
 
     userEvent.click(moreDetailsLinks[0]);
-    await waitFor(() => expect(loaging).not.toBeInTheDocument());
+    await waitFor(() => expect(loading).not.toBeInTheDocument());
 
     const pokeTitle = await screen.findByRole('heading', { level: 2, name: /pokemon/i });
     expect(pokeTitle).toBeInTheDocument();
@@ -70,8 +70,8 @@ describe('Testes para o componente GenerationsDetails.js para avaliar', () => {
     renderWithRouter(<GenerationsDetails { ...props } />);
     expect(global.fetch).toBeCalledTimes(1);
 
-    const loaging = await screen.findByText(/loading/i);
-    await waitFor(() => expect(loaging).not.toBeInTheDocument());
+    const loading = await screen.findByText(/loading/i);
+    await waitFor(() => expect(loading).not.toBeInTheDocument());
 
     const kantoTitle = `${changeName(generation.main_region.name)} Pokemon`;
     const genTitle = screen.getByRole('heading', { level: 2, name: kantoTitle });
