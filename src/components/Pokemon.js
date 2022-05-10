@@ -18,7 +18,7 @@ const Pokemon = ({ pokemon, showDetailsLink, isFavorite }) => {
         <p data-testid="pokemon-weight">
           Average weight: {value} {measurementUnit}
         </p>
-        {showDetailsLink && <Link to={ `pokemons/${id}` }>More details</Link>}
+        {showDetailsLink && <Link to={ `pokemons/pokemon/${id}` }>More details</Link>}
       </div>
       <img src={ `${image}` } alt={ `${name} sprite` } />
       {isFavorite && (
