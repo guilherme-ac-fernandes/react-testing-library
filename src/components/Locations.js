@@ -22,7 +22,6 @@ class Locations extends React.Component {
   }
 
   async getLocations() {
-
     this.setState({ loading: true }, async () => {
       try {
         const URL = 'https://pokeapi.co/api/v2/location';
@@ -39,7 +38,6 @@ class Locations extends React.Component {
         });
       }
     })
-
   }
 
   onClickUp = () => {

@@ -11,24 +11,30 @@ class GenerationsDetails extends React.Component {
       loading: true,
     }
 
-    this.getLocation = this.getLocation.bind(this);
+    this.getGenerations = this.getGenerations.bind(this);
   }
 
   componentDidMount() {
-    this.getLocation();
+    this.getGenerations();
   }
 
-  async getLocation() {
+  async getGenerations() {
     this.setState({ loading: true }, async () => {
-      const { match: { params: { id } } } = this.props;
-      const URL = `https://pokeapi.co/api/v2/generation/${id}/`;
-      const response = await fetch(URL);
-      const generation = await response.json();
-      this.setState({ 
-        generation, 
-        loading: false
-      });
-    });
+      try {
+        const { match: { params: { id } } } = this.props;
+        const URL = `https://pokeapi.co/api/v2/generation/${id}/`;
+        const response = await fetch(URL);
+        const generation = await response.json();
+        this.setState({ 
+          generation, 
+          loading: false
+        });
+      } catch (error) {
+        this.setState({ loading: true }, () => {
+          console.log(`Erro ao fazer a requisição: ${error}`)
+        });
+      }
+    })
   }
 
   changeName = (string) => string[0].toUpperCase() + string.slice(1);

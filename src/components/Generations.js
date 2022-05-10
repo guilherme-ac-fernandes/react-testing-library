@@ -12,24 +12,31 @@ class Generations extends React.Component {
       loading: true,
     }
 
-    this.getLocations = this.getLocations.bind(this);
+    this.getGenerations = this.getGenerations.bind(this);
   }
 
   componentDidMount() {
-    this.getLocations();
+    this.getGenerations();
   }
 
-  async getLocations() {
+
+  async getGenerations() {
     this.setState({ loading: true }, async () => {
-      const URL = 'https://pokeapi.co/api/v2/generation';
-      const response = await fetch(URL);
-      const generations = await response.json();
-      const results = generations.results;
-      this.setState({ 
-        generations: results, 
-        loading: false 
-      });
-    });
+      try {
+        const URL = 'https://pokeapi.co/api/v2/generation';
+        const response = await fetch(URL);
+        const generations = await response.json();
+        const results = generations.results;
+        this.setState({ 
+          generations: results, 
+          loading: false 
+        });
+      } catch (error) {
+        this.setState({ loading: true }, () => {
+          console.log(`Erro ao fazer a requisição: ${error}`)
+        });
+      }
+    })
   }
 
   changeName = (phrase) => {
