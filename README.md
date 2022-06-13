@@ -1,7 +1,6 @@
 ## Projeto React Testing Library
 
-#### A partir de uma aplicação React que apresenta um lista de pokémon indivualmente com a possibilidade de ver mais detalhes e adicionar como favorito; bem como a navegação entre tipos de pokémon e rotas. Sendo assum, o projeto consistiu no desenvolvimento dos testes de forma a apresentar cobertura para toda a aplicação existente e realizada no bônus.
-
+#### A partir de uma aplicação React que apresenta um lista de pokémon indivualmente com a possibilidade de ver mais detalhes e adicionar como favorito, apresentando também a possibilidade de navegação entre tipos de pokémon e rotas. O projeto consistiu na criação dos testes de forma a apresentar cobertura para toda a aplicação existente.
 > Os testes foram desenvolvidos utilizando Jest e a biblioteca React Testing Library, juntamente com as bibliotecas React e BrowserRouter nos requisitos bônus.
 
 Descrição dos requisitos:
