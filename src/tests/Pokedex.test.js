@@ -3,7 +3,6 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './renderWithRouter';
 import App from '../App';
-// import Pokedex from '../components/Pokedex';
 
 // Teste no Pokedex.js
 describe('Testes para o componente Pokedex.js para avaliar', () => {
@@ -61,9 +60,6 @@ describe('Testes para o componente Pokedex.js para avaliar', () => {
         expect(otherPokemon).not.toBeInTheDocument();
       }
     });
-
-    // const pokemonNameArray = screen.getAllByTestId('pokemon-name');
-    // expect(pokemonNameArray).toHaveLength(1);
   });
 
   it('Se contém os botões de filtro e sua funcionalidade está correta', () => {
