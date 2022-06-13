@@ -1,6 +1,5 @@
 import React from 'react';
-// import { waitFor, screen } from '@testing-library/react';
-import { screen } from '@testing-library/react';
+import { waitFor, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './renderWithRouter';
 import App from '../App';
@@ -48,27 +47,27 @@ describe('Testes para o componente App.js para avaliar', () => {
     expect(favoriteTitle).toBeInTheDocument();
 
     // Locations
-    // const locationsLink = screen.getByRole('link', { name: /locations/i });
-    // expect(locationsLink).toBeInTheDocument();
-    // userEvent.click(locationsLink);
+    const locationsLink = screen.getByRole('link', { name: /locations/i });
+    expect(locationsLink).toBeInTheDocument();
+    userEvent.click(locationsLink);
 
-    // const loading = await screen.findByText(/loading/i);
-    // await waitFor(() => expect(loading).not.toBeInTheDocument());
+    const loading = await screen.findByText(/loading/i);
+    await waitFor(() => expect(loading).not.toBeInTheDocument());
 
-    // const locationsTitle = screen.getByRole('heading',
-    //   { level: 2, name: /locations/i });
-    // expect(locationsTitle).toBeInTheDocument();
+    const locationsTitle = screen.getByRole('heading',
+      { level: 2, name: /locations/i });
+    expect(locationsTitle).toBeInTheDocument();
 
     // Generations
-    // const generationsLink = screen.getByRole('link', { name: /generations/i });
-    // expect(generationsLink).toBeInTheDocument();
-    // userEvent.click(generationsLink);
+    const generationsLink = screen.getByRole('link', { name: /generations/i });
+    expect(generationsLink).toBeInTheDocument();
+    userEvent.click(generationsLink);
 
-    // await waitFor(() => expect(loading).not.toBeInTheDocument());
+    await waitFor(() => expect(loading).not.toBeInTheDocument());
 
-    // const generationsTitle = screen.getByRole('heading',
-    //   { level: 2, name: /generations/i });
-    // expect(generationsTitle).toBeInTheDocument();
+    const generationsTitle = screen.getByRole('heading',
+      { level: 2, name: /generations/i });
+    expect(generationsTitle).toBeInTheDocument();
   });
 
   it('Se ao entrar um URL desconhecida vai para página NotFound', () => {
