@@ -24,7 +24,7 @@ npm run test-coverage
 
 ### Demonstração da aplicação submetida dos testes
 
-👨🏻‍💻 **Acessar:** _[Clique Aqui](https://starwars-planets-search-alpha.vercel.app)_
+👨🏻‍💻 **Acessar:** _[Clique Aqui](https://react-testing-library-eight.vercel.app)_
 
 <p align="center">
   <img src="https://github.com/guilherme-ac-fernandes/react-testing-library/blob/main/react-testing-library.gif" alt="React Testing Library Gif - Demostração"/>
